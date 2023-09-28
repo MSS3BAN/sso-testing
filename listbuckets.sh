@@ -18,5 +18,5 @@ jobs:
           AliceAdmin-598405220016
           aws-region: eu-central-1
 
-      - name: list s3
+      - name: list s3 demo-aws-sso
         run: aws s3 ls
