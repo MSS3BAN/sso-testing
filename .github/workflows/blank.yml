@@ -12,22 +12,30 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+env:
+  
+  AWS_REGION : "eu-central-1" #Change to reflect your Region
+
+# Permission can be added at job level or workflow level    
+permissions:
+      id-token: write   # This is required for requesting the JWT
+      contents: read    # This is required for actions/checkout
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: arn:aws:iam::805499615787:role/SSO-Admin-role-sai
-          aws-region: eu-central-1
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run:  aws s3 ls
+   AssumeRoleAndCallIdentity:
+        # The type of runner that the job will run on
+        runs-on: self-hosted
+    
+        # Steps represent a sequence of tasks that will be executed as part of the job
+        steps:
+          - name: Configure AWS Credentials
+            uses: aws-actions/configure-aws-credentials@v1.7.0
+            with:
+              role-to-assume: arn:aws:iam::805499615787:role/SSO-Admin-role-sai
+              role-session-name: GitHub_to_AWS_via_FederatedOIDC
+              aws-region: eu-central-1
+    
+          # Runs a set of commands using the runners shell
+          - name: Run a multi-line script
+            run:  aws s3 ls
