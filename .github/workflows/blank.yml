@@ -28,7 +28,7 @@ jobs:
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::805499615787:role/aws-service-role/sso.amazonaws.com/AWSServiceRoleForSSO #change to reflect your IAM role’s ARN
+          role-to-assume: arn:aws:iam::805499615787:role/aws-reserved/sso.amazonaws.com/eu-central-1/AWSReservedSSO_AWSAdministratorAccess_a7b9eec75a6b442a #change to reflect your IAM role’s ARN
           role-session-name: sai
           aws-region: eu-central-1
 
