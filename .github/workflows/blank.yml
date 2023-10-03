@@ -22,9 +22,5 @@ jobs:
           aws-region: eu-central-1
           role-to-assume: arn:aws:iam::805499615787:role/SSO-Admin-role-sai #change to reflect your IAM role’s ARN
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
-      - name: Get Web Identity Token
-        run: |
-          WEB_IDENTITY_TOKEN=$(aws sts assume-role-with-web-identity --role-arn arn:aws:iam::805499615787:role/SSO-Admin-role-sai --role-session-name GitHub_to_AWS_via_FederatedOIDC --web-identity-token $GITHUB_TOKEN --query 'Credentials.SessionToken' --output text)
-          echo "Web Identity Token: $WEB_IDENTITY_TOKEN"
-      - name: Sts GetCallerIdentity
-        run: echo aws s3 ls
+      - name: Run a multi-line script
+          run:aws s3 ls
