@@ -19,9 +19,8 @@ jobs:
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v1.7.0
         with:
+          aws-region: eu-central-1
           role-to-assume: arn:aws:iam::805499615787:role/SSO-Admin-role-sai #change to reflect your IAM role’s ARN
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
-          aws-region: eu-central-1
-      # Hello from AWS: WhoAmI
       - name: Sts GetCallerIdentity
         run: echo aws s3 ls
