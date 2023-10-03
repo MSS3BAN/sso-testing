@@ -24,4 +24,4 @@ jobs:
           aws-region: eu-central-1
       # Hello from AWS: WhoAmI
       - name: Sts GetCallerIdentity
-        run: aws s3 ls
+        run: echo aws s3 ls
