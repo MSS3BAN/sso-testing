@@ -30,7 +30,7 @@ jobs:
         # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
           - name: Configure AWS Credentials
-            uses: aws-actions/configure-aws-credentials@v1.7.0
+            uses: aws-actions/configure-aws-credentials@v4
             with:
               role-to-assume: arn:aws:iam::805499615787:role/SSO-Admin-role-sai
               role-session-name: GitHub_to_AWS_via_FederatedOIDC
