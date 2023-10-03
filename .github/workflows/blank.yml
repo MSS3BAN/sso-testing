@@ -23,4 +23,4 @@ jobs:
           role-to-assume: arn:aws:iam::805499615787:role/SSO-Admin-role-sai #change to reflect your IAM role’s ARN
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
       - name: Run a multi-line script
-          run:aws s3 ls
+          run: aws s3 ls
