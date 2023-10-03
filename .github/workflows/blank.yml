@@ -24,6 +24,6 @@ jobs:
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
       - name: Display Web Identity Token
         run: |
-          echo "Web Identity Token: $AWS_WEB_IDENTITY_TOKEN"
+             "Web Identity Token: $AWS_WEB_IDENTITY_TOKEN"
       - name: Sts GetCallerIdentity
         run: echo aws s3 ls
